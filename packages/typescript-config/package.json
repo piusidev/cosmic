@@ -1,0 +1,15 @@
+{
+  "name": "@cosmic/tsconfig",
+  "version": "0.0.1",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    "./base.json": "./base.json",
+    "./react-app.json": "./react-app.json",
+    "./react-library.json": "./react-library.json",
+    "./nextjs.json": "./nextjs.json",
+    "./node.json": "./node.json"
+  }
+}

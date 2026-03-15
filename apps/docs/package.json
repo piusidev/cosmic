@@ -1,0 +1,34 @@
+{
+  "name": "docs",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "storybook dev -p 6006",
+    "build": "storybook build",
+    "check-types": "tsc --noEmit",
+    "clean": "rimraf .turbo node_modules",
+    "lint": "eslint . --max-warnings 0"
+  },
+  "dependencies": {
+    "@cosmic/ui": "workspace:*",
+    "@tailwindcss/vite": "^4.2.1",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "tailwindcss": "^4.1.18"
+  },
+  "devDependencies": {
+    "@cosmic/eslint-config": "workspace:*",
+    "@cosmic/tsconfig": "workspace:*",
+    "@storybook/react-vite": "^10.2.19",
+    "@types/node": "^24.12.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.0",
+    "eslint": "^9.39.4",
+    "eslint-plugin-storybook": "^10.2.19",
+    "storybook": "^10.2.19",
+    "typescript": "~5.9.3",
+    "vite": "^8.0.0"
+  }
+}
