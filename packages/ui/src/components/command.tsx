@@ -3,16 +3,19 @@
 import * as React from "react";
 import { Command as CommandPrimitive } from "cmdk";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@cosmic/ui/lib/utils";
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from "@/components/dialog";
-import { InputGroup, InputGroupAddon } from "@/components/input-group";
-import { SearchIcon, CheckIcon } from "lucide-react";
+} from "@cosmic/ui/components/dialog";
+import {
+  InputGroup,
+  InputGroupAddon,
+} from "@cosmic/ui/components/input-group";
+import { IconSearch, IconCheck } from "@tabler/icons-react";
 
 function Command({
   className,
@@ -37,11 +40,12 @@ function CommandDialog({
   className,
   showCloseButton = false,
   ...props
-}: React.ComponentProps<typeof Dialog> & {
+}: Omit<React.ComponentProps<typeof Dialog>, "children"> & {
   title?: string;
   description?: string;
   className?: string;
   showCloseButton?: boolean;
+  children: React.ReactNode;
 }) {
   return (
     <Dialog {...props}>
@@ -78,7 +82,7 @@ function CommandInput({
           {...props}
         />
         <InputGroupAddon>
-          <SearchIcon className="size-4 shrink-0 opacity-50" />
+          <IconSearch className="size-4 shrink-0 opacity-50" />
         </InputGroupAddon>
       </InputGroup>
     </div>
@@ -158,7 +162,7 @@ function CommandItem({
       {...props}
     >
       {children}
-      <CheckIcon className="ml-auto opacity-0 group-has-data-[slot=command-shortcut]/command-item:hidden group-data-[checked=true]/command-item:opacity-100" />
+      <IconCheck className="ml-auto opacity-0 group-has-data-[slot=command-shortcut]/command-item:hidden group-data-[checked=true]/command-item:opacity-100" />
     </CommandPrimitive.Item>
   );
 }

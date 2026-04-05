@@ -3,10 +3,10 @@
 import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/button";
-import { Input } from "@/components/input";
-import { Textarea } from "@/components/textarea";
+import { cn } from "@cosmic/ui/lib/utils";
+import { Button } from "@cosmic/ui/components/button";
+import { Input } from "@cosmic/ui/components/input";
+import { Textarea } from "@cosmic/ui/components/textarea";
 
 function InputGroup({ className, ...props }: React.ComponentProps<"div">) {
   return (
@@ -89,8 +89,10 @@ function InputGroupButton({
   variant = "ghost",
   size = "xs",
   ...props
-}: Omit<React.ComponentProps<typeof Button>, "size"> &
-  VariantProps<typeof inputGroupButtonVariants>) {
+}: Omit<React.ComponentProps<typeof Button>, "size" | "type"> &
+  VariantProps<typeof inputGroupButtonVariants> & {
+    type?: "button" | "submit" | "reset";
+  }) {
   return (
     <Button
       type={type}

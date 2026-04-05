@@ -1,12 +1,12 @@
 import * as React from "react";
 
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/button";
+import { cn } from "@cosmic/ui/lib/utils";
+import { Button } from "@cosmic/ui/components/button";
 import {
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  MoreHorizontalIcon,
-} from "lucide-react";
+  IconChevronLeft,
+  IconChevronRight,
+  IconDots,
+} from "@tabler/icons-react";
 
 function Pagination({ className, ...props }: React.ComponentProps<"nav">) {
   return (
@@ -50,18 +50,19 @@ function PaginationLink({
 }: PaginationLinkProps) {
   return (
     <Button
-      asChild
       variant={isActive ? "outline" : "ghost"}
       size={size}
       className={cn(className)}
-    >
-      <a
-        aria-current={isActive ? "page" : undefined}
-        data-slot="pagination-link"
-        data-active={isActive}
-        {...props}
-      />
-    </Button>
+      nativeButton={false}
+      render={
+        <a
+          aria-current={isActive ? "page" : undefined}
+          data-slot="pagination-link"
+          data-active={isActive}
+          {...props}
+        />
+      }
+    />
   );
 }
 
@@ -77,7 +78,7 @@ function PaginationPrevious({
       className={cn("pl-1.5!", className)}
       {...props}
     >
-      <ChevronLeftIcon data-icon="inline-start" />
+      <IconChevronLeft data-icon="inline-start" />
       <span className="hidden sm:block">{text}</span>
     </PaginationLink>
   );
@@ -96,7 +97,7 @@ function PaginationNext({
       {...props}
     >
       <span className="hidden sm:block">{text}</span>
-      <ChevronRightIcon data-icon="inline-end" />
+      <IconChevronRight data-icon="inline-end" />
     </PaginationLink>
   );
 }
@@ -115,7 +116,7 @@ function PaginationEllipsis({
       )}
       {...props}
     >
-      <MoreHorizontalIcon />
+      <IconDots />
       <span className="sr-only">More pages</span>
     </span>
   );
